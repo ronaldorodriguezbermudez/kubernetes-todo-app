@@ -18,9 +18,9 @@ spec:
       - name: frontend
         image: glgelopfalcon/frontend-todo:v1
         imagePullPolicy: Always
-        env:
-        - name: STATS_QUEUE_URI
-          value: amqp://stats-queue
+        envFrom:
+        - configMapRef:
+            name: stats-config
 ---
 apiVersion: v1
 kind: Service
